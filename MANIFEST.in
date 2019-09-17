@@ -1,0 +1,5 @@
+include LICENSE
+include README.md
+recursive-include object_status/static *
+recursive-include object_status/templates *
+recursive-include docs *
