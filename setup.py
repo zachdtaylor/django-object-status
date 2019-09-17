@@ -11,7 +11,7 @@ setup(
   version='0.1',
   packages=find_packages(),
   include_package_data=True,
-  liscense='BSD-2-Clause',
+  license='BSD-2-Clause',
   description='A Django app for managing a model object review process',
   long_description=README,
   url='https://github.com/zachtylr21/django-object-status',
