@@ -1,0 +1,27 @@
+{% extends "admin/change_form.html" %}
+
+{% block submit_buttons_bottom %}
+  {{ block.super }}
+  {% if IN_PROGRESS %}
+    <div class="submit-row">
+      <input type="submit" value="Submit for Review" class="default review" name="_submitforreview">
+    </div>
+  {% elif NEEDS_REVIEW %}
+    {% if CAN_PUSH or CAN_REJECT %}
+    <div class="submit-row">
+      {% if CAN_PUSH %}
+      <input type="submit" value="Push to Production" class="default production" name="_pushtoproduction">
+      {% endif %}
+      {% if CAN_REJECT %}
+      <input type="submit" value="Reject" class="default reject" name="_rejectfromreview">
+      {% endif %}
+    </div>
+    {% endif %}
+  {% elif IN_PRODUCTION %}
+    {% if CAN_REMOVE %}
+    <div class="submit-row">
+      <input type="submit" value="Remove from Production" class="default reject" name="_removefromproduction">
+    </div>
+    {% endif %}
+  {% endif %}
+{% endblock %}
